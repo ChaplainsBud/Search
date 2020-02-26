@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<div>
+    <div>
+        <form th:action="@{/search}" method="post">
+            <input type="text" name="search" placeholder="Enter the search name" required>
+            <input type="submit" value="Search">
+        </form>
+    </div>
+    <th:block>
+        <div th:each = "person : ${persons}">
+            <h1 th:text="${person.name}"></h1>
+            <p th:text="${person.id}"></p>
+            <p th:inline="text">The person's height is [[${person.height}]]</p>
+            <p th:inline="text">The person's age is [[${person.age}]]</p>        </div>
+    </th:block>
+</div>
+</body>
+</html>
